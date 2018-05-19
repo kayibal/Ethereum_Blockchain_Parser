@@ -94,3 +94,10 @@ class FileStructure(dict):
     def format(self, key, *args, **kwargs):
         str_path = str(self.__getitem__(key))
         return Path(str_path.format(*args, **kwargs))
+
+PATH = FileStructure(
+    ROOT=Path(__file__).parents[1],
+    LOGDIR='logs',
+    MONGO_DB=('data', 'mongo'),
+    BC_DATA=('data', 'bc'),
+)
