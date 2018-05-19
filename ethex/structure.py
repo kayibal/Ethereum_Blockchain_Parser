@@ -8,7 +8,7 @@ class FileStructure(dict):
         if not isinstance(ROOT, Path):
             ROOT = Path(ROOT)
 
-        self['ROOT'] = self.root = ROOT.absolute()
+        self['ROOT'] = self.ROOT = ROOT.absolute()
         for key, value in self.items():
             if key != 'ROOT':
                 self.__setitem__(key, value)
