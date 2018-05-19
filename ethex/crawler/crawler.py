@@ -74,7 +74,7 @@ class Crawler(object):
 
         if start:
             self.max_block_mongo = self.highestBlockMongo()
-            self.max_block_geth = self.highestBlockEth()
+            self.max_block_geth = 5641745
             self.run()
 
     def _rpcRequest(self, method, params, key):
