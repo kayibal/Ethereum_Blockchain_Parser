@@ -7,6 +7,7 @@ import pdb
 DB_NAME = "blockchain"
 COLLECTION = "transactions"
 
+
 # mongodb
 # -------
 def initMongo(client):
@@ -29,9 +30,9 @@ def initMongo(client):
     try:
         # Index the block number so duplicate records cannot be made
         db[COLLECTION].create_index(
-			[("number", pymongo.DESCENDING)],
-			unique=True
-		)
+            [("number", pymongo.DESCENDING)],
+            unique=True
+        )
     except:
         pass
 
@@ -91,11 +92,12 @@ def makeBlockQueue(client):
     <deque>
     """
     queue = deque()
-    all_n = client.find({}, {"number":1, "_id":0},
-    		sort=[("number", pymongo.ASCENDING)])
+    all_n = client.find({}, {"number": 1, "_id": 0},
+                        sort=[("number", pymongo.ASCENDING)])
     for i in all_n:
         queue.append(i["number"])
     return queue
+
 
 # Geth
 # ----
@@ -151,7 +153,7 @@ def decodeBlock(block):
         # Filter the block
         new_block = {
             "number": int(b["number"], 16),
-            "timestamp": int(b["timestamp"], 16),		# Timestamp is in unix time
+            "timestamp": int(b["timestamp"], 16),  # Timestamp is in unix time
             "transactions": []
         }
         # Filter and decode each transaction and add it back
@@ -160,7 +162,7 @@ def decodeBlock(block):
             new_t = {
                 "from": t["from"],
                 "to": t["to"],
-                "value": float(int(t["value"], 16))/1000000000000000000.,
+                "value": float(int(t["value"], 16)) / 1000000000000000000.,
                 "data": t["input"]
             }
             new_block["transactions"].append(new_t)

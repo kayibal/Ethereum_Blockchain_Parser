@@ -33,5 +33,5 @@ tags = defaultdict(int, {
     "0x9d551f41fed6fc27b719777c224dfecce170004d": 3,  # ethereumpool
     "0xd1e56c2e765180aa0371928fd4d1e41fbcda34d4": 3,  # weipool
     "0xf3b9d2c81f2b24b0fa0acaaa865b7d9ced5fc2fb": 3,  # bitclubpool
-    "0xb2930b35844a230f00e51431acae96fe543a0347": 3  # mininggpoolhub
+    "0xb2930b35844a230f00e51431acae96fe543a0347": 3   # mininggpoolhub
 })
