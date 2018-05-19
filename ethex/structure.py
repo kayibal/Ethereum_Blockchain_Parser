@@ -10,9 +10,8 @@ class FileStructure(dict):
 
         self['ROOT'] = self.root = ROOT.absolute()
         for key, value in self.items():
-            if not isinstance(value, Path):
-                value = Path(value)
-            self[key] = value
+            if key != 'ROOT':
+                self.__setitem__(key, value)
 
     def __setitem__(self, key, value):
         if isinstance(value, tuple):
