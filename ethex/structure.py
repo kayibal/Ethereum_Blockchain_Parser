@@ -25,7 +25,7 @@ class FileStructure(dict):
         path = self.ROOT / rel_path
         dir_ = path
         if path.suffix:
-            dir_ = path.parent[0]
+            dir_ = path.parents[0]
         dir_.mkdir(parents=True, exist_ok=True)
         return path
 
@@ -35,7 +35,7 @@ class FileStructure(dict):
 
 
 PATH = FileStructure(
-    ROOT=Path(__file__).parent[1],
+    ROOT=Path(__file__).parents[1],
     LOGDIR='logs',
     MONGO_DB=('data', 'mongo'),
     BC_DATA=('data', 'bc')
