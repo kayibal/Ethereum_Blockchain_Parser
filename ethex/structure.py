@@ -6,8 +6,9 @@ class FileStructure(dict):
     def __init__(self, ROOT, *args, **kwargs):
         super(FileStructure, self).__init__(*args, **kwargs)
         if not isinstance(ROOT, Path):
-            self.ROOT = Path(ROOT).absolute()
-        self['ROOT'] = self.ROOT
+            ROOT = Path(ROOT)
+
+        self['ROOT'] = self.root = ROOT.absolute()
         for key, value in self.items():
             if not isinstance(value, Path):
                 value = Path(value)
