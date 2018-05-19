@@ -8,8 +8,13 @@ DB_NAME = "blockchain"
 COLLECTION = "transactions"
 
 
-# mongodb
-# -------
+def getClient():
+    """Connect to a mongo client (assuming one is running)."""
+    client = pymongo.MongoClient(serverSelectionTimeoutMS=1000)
+    transactions = client["blockchain"]["transactions"]
+    return transactions
+
+
 def initMongo(client):
     """
     Given a mongo client instance, create db/collection if either doesn't exist
