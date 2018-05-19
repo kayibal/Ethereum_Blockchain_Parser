@@ -10,7 +10,7 @@ from ethex.crawler.util import initMongo, makeBlockQueue, decodeBlock, \
     insertMongo, highestBlock
 from ethex.structure import PATH
 
-logging.basicConfig(filename=PATH['LOGDIR'].join('preprocess.log'),
+logging.basicConfig(filename=PATH['LOGDIR'].joinpath('preprocess.log'),
                     level=logging.DEBUG)
 logging.getLogger("urllib3").setLevel(logging.WARNING)
 
